@@ -109,6 +109,25 @@ EOF
 chmod +x /etc/rc.local
 }
 
+x11vnc_service (){
+tee /etc/systemd/system/x11vnc.service <<EOF
+[Unit]
+Description=VNC Server for X11
+Requires=display-manager.service
+After=network-online.target
+Wants=network-online.target
+ 
+[Service]
+ExecStart=/usr/bin/x11vnc -auth guess -display :0 -tightfilexfer -ultrafilexfer -rfbport 5900 -passwd 123123 -shared -forever -o /var/log/x11vnc.log
+ExecStop=/usr/bin/x11vnc -R stop
+Restart=on-failure
+RestartSec=2
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+}
+
 systemd_services (){
 systemctl enable rc-local
 systemctl enable ifplugd
@@ -117,6 +136,7 @@ systemctl enable bluetooth
 systemctl enable firstboot
 systemctl enable credentials
 systemctl enable governor
+systemctl enable x11vnc
 if [[ "$DISTRO_VERSION" == "bullseye" ]]; then
 	if [[ "$BOARD" == "bcm2708" ]]; then
 		mkdir -p /etc/systemd/system/haveged.service.d;
