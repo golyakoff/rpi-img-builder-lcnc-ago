@@ -13,9 +13,8 @@ DISTRO="debian"
 DISTRO_VERSION="bookworm"
 NETWORKMANAGER="1"
 ### CUSTOM KERNEL - Comment out the one not required
-CUSTOM_DEFCONFIG="0"
-#MYCONFIG="linuxcnc-pi4_defconfig"
-#MYCONFIG="linuxcnc-pi5_defconfig"
+CUSTOM_DEFCONFIG="1"
+MYCONFIG="kernel-v8-ago_defconfig"
 VERBOSE="1"
 DEVROOTFS="1"
 COMPRESS_IMG="1"
@@ -24,7 +23,7 @@ USERACCT="0"
 USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl"
 ### CUSTOM LINUX KERNEL - Comment out commits
 ENABLE_COMMIT="1"
-COMMIT="342c7ee49e862edc30c893f141f55b9211b7a43b"
+COMMIT="eb06d31da3e2025a2e578d8de9843e24b68137a6"
 ### COMPILER TUNING
 CORES=`nproc`
 CFLAGS=""

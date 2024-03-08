@@ -3,7 +3,7 @@
 run_function0 (){
 
 if [[ -f "board.txt" ]]; then
-	sed -i 's/net.ifnames=0/net.ifnames=0 processor.max_cstate=1 isolcpus=2,3/g' board.txt
+	sed -i 's/net.ifnames=0/net.ifnames=0 processor.max_cstate=1 isolcpus=2,3 nohz_full=2,3 rcu_nocbs=2,3/g' board.txt
 fi
 }
 run_function1 (){
