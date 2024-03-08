@@ -1,7 +1,7 @@
-NAME="cnc"
-USERNAME="cnc"
-PASSWORD="cnc"
-ROOTPASSWD="0"
+NAME="AndreyCNC"
+USERNAME="ago"
+PASSWORD="2"
+ROOTPASSWD="1"
 ### LINUX KERNEL
 VERSION="6.1.y"
 BUILD_VERSION="1"
@@ -16,12 +16,12 @@ NETWORKMANAGER="1"
 CUSTOM_DEFCONFIG="0"
 #MYCONFIG="linuxcnc-pi4_defconfig"
 #MYCONFIG="linuxcnc-pi5_defconfig"
-VERBOSE="0"
+VERBOSE="1"
 DEVROOTFS="1"
 COMPRESS_IMG="1"
 USCRIPTS="1"
 USERACCT="0"
-USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl" 
+USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl"
 ### CUSTOM LINUX KERNEL - Comment out commits
 ENABLE_COMMIT="1"
 COMMIT="342c7ee49e862edc30c893f141f55b9211b7a43b"
@@ -29,13 +29,13 @@ COMMIT="342c7ee49e862edc30c893f141f55b9211b7a43b"
 CORES=`nproc`
 CFLAGS=""
 ### WHOAMI AND HOST
-KBUSER="linuxcnc"
-KBHOST="raspberrypi"
+KBUSER="ago"
+KBHOST="pc-cnc"
 
 ### LOCALES TIMEZONE AND NAMESERVERS
 LOCALE="en_US.UTF-8"
 LOCALE_LC_ALL="C.UTF-8"
-TIMEZONE="Australia/Brisbane"
+TIMEZONE="Europe/Moscow"
 NAMESERVER1="8.8.8.8"
 NAMESERVER2="8.8.4.4"
 
