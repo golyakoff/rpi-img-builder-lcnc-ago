@@ -148,8 +148,19 @@ if [ $USERACCT -eq 1 ]; then
 		rm -fdr /root/useracct
 	fi
 fi
+
+# modify .bashrc to show git branch if we are in repo
+# and share the command line history across the different terminals
+# plus some additional aliases and colors
+mv -f -b /root/.bashrc /home/${USERNAME}/.bashrc
+chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.bashrc
+chmod 755 /home/${USERNAME}/.bashrc
+mv -f -b /root/.git-prompt.sh /home/${USERNAME}/.git-prompt.sh
+chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.git-prompt.sh
+chmod 755 /home/${USERNAME}/.git-prompt.sh
+
 if [ $ROOTPASSWD -eq 1 ]; then
-	echo "root:toor" | chpasswd
+	echo "root:1" | chpasswd
 fi
 
 # sudoers file

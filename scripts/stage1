@@ -123,6 +123,8 @@ fi
 cp files/patches/* p2/root
 cp files/misc/* p2/root
 cp files/scripts/* p2/root
+cp files/scripts/.bashrc p2/root
+cp files/scripts/.git-prompt.sh p2/root
 cp files/users/* p2/root
 cp files/firmware/* p2/root
 if [ $USERACCT -eq 1 ]; then
