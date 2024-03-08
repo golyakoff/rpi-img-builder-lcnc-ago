@@ -125,16 +125,16 @@ disable_overscan=1
 #display_auto_detect=1
 
 # uncomment to overclock: https://www.tomshardware.com/how-to/overclock-any-raspberry-pi
-#arm_freq=
-#gpu_freq=
-#core_freq=
-#over_voltage=
-#force_turbo=1
+arm_freq=2000
+gpu_freq=700
+core_freq=700
+over_voltage=5
+force_turbo=1
 
 # uncomment some or all of these to enable the optional hardware interfaces
 #dtparam=i2c_arm=on
 #dtparam=i2s=on
-#dtparam=spi=on
+dtparam=spi=on
 
 # uncomment this to enable infrared communication.
 #dtoverlay=gpio-ir,gpio_pin=17
@@ -143,14 +143,14 @@ disable_overscan=1
 # additional overlays and parameters are documented /boot/overlays/README
 
 # enable audio (loads snd_bcm2835)
-dtparam=audio=on
+#dtparam=audio=on
 
 # enable uart
-enable_uart=0
+#enable_uart=0
 
 # disable wifi and bluetooth
 #dtoverlay=disable-wifi
-#dtoverlay=disable-bt
+dtoverlay=disable-bt
 #dtoverlay=pi3-disable-wifi
 #dtoverlay=pi3-disable-bt
 
@@ -164,7 +164,7 @@ disable_splash=1
 # Enable host mode on the 2711 built-in XHCI USB controller.
 # This line should be removed if the legacy DWC2 controller is required
 # (e.g. for USB device mode) or if USB support is not required.
-otg_mode=1
+#otg_mode=1
 
 [pi4]
 # Enable DRM VC4 V3D driver on top of the dispmanx display stack
