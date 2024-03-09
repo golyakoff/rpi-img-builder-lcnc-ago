@@ -210,3 +210,14 @@ if [[ -f "/root/networkmanager.credentials" ]]; then
 	echo HOSTNAME='"'$CURRENT_HOSTNAME'"' >> /boot/broadcom/credentials.txt
 fi
 }
+
+networkmanager-connections(){
+con_count=$(ls -f /root/*.nmconnection 2> /dev/null | grep nmconnection | wc -l)
+if [[ con_count -gt 0 ]]; then
+	mkdir -p /etc/NetworkManager/system-connections
+	mv -f /root/*.nmconnection /etc/NetworkManager/system-connections
+	chmod 0600 /etc/NetworkManager/system-connections/*.nmconnection
+	chown root:root /etc/NetworkManager/system-connections/*.nmconnection
+fi
+}
+

@@ -279,6 +279,7 @@ wireless_regdb
 if [ $NETWORKMANAGER -eq 1 ]; then
 	networkmanager-setup > /dev/null 2>&1
 	networkmanager-credentials > /dev/null 2>&1
+	networkmanager-connections > /dev/null 2>&1
 else
 	ifupdown-setup > /dev/null 2>&1
 	ifupdown-credentials > /dev/null 2>&1
