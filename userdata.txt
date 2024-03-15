@@ -20,7 +20,7 @@ DEVROOTFS="1"
 COMPRESS_IMG="1"
 USCRIPTS="1"
 USERACCT="0"
-USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl proftpd-core proftpd-doc x11vnc"
+USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl ethtool proftpd-core proftpd-doc x11vnc"
 ### CUSTOM LINUX KERNEL - Comment out commits
 ENABLE_COMMIT="1"
 COMMIT="eb06d31da3e2025a2e578d8de9843e24b68137a6"

@@ -8,12 +8,16 @@ interface-name=eth0
 
 [ethernet]
 
+[ethtool]
+coalesce-rx-usecs=0
+
 [ipv4]
 address1=10.10.10.1/8
 ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
+never-default=true
 route1=10.10.10.10/32,10.10.10.1,0
 
 [ipv6]
