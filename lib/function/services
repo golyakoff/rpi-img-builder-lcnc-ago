@@ -128,6 +128,29 @@ WantedBy=multi-user.target
 EOF
 }
 
+pin_irqs_service (){
+tee /etc/systemd/system/pin-irqs.service <<EOF
+[Unit]
+Description=Pins interrupts to the scpecific cores
+After=network.target
+ConditionPathExists=/usr/local/bin/pin-irqs
+
+[Service]
+Type=idle
+ExecStartPre=/bin/sleep 60
+ExecStart=/usr/local/bin/pin-irqs start
+ExecStop=/usr/local/bin/pin-irqs stop
+ExecReload=/usr/local/bin/pin-irqs restart
+TimeoutSec=90
+StandardOutput=journal+console
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+}
+
+
 systemd_services (){
 systemctl enable rc-local
 systemctl enable ifplugd
@@ -137,6 +160,7 @@ systemctl enable firstboot
 systemctl enable credentials
 systemctl enable governor
 systemctl enable x11vnc
+systemctl enable pin-irqs
 if [[ "$DISTRO_VERSION" == "bullseye" ]]; then
 	if [[ "$BOARD" == "bcm2708" ]]; then
 		mkdir -p /etc/systemd/system/haveged.service.d;

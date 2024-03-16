@@ -163,6 +163,11 @@ if [ $ROOTPASSWD -eq 1 ]; then
 	echo "root:1" | chpasswd
 fi
 
+# place "pin interrupts" script for systemd service pin-irqs.service
+mv -f /root/pin-irqs /usr/local/bin/pin-irqs
+chown -R root:root /usr/local/bin/pin-irqs
+chmod 755 /usr/local/bin/pin-irqs
+
 # sudoers file
 if [ $USERACCT -eq 0 ]; then
 	echo ""
@@ -380,6 +385,7 @@ else
 	led_service > /dev/null 2>&1
 	rc-local_service > /dev/null 2>&1
 	x11vnc_service > /dev/null 2>&1
+	pin_irqs_service > /dev/null 2>&1
 	systemd_services > /dev/null 2>&1
 fi
 
