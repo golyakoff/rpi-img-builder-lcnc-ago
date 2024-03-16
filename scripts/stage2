@@ -159,6 +159,18 @@ mv -f -b /root/.git-prompt.sh /home/${USERNAME}/.git-prompt.sh
 chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.git-prompt.sh
 chmod 755 /home/${USERNAME}/.git-prompt.sh
 
+# modify default settings of xfce4 desktop environment:
+# - disable display off when inactive,
+# - disable lock screen,
+# - remove audio plugin,
+# - and logout icons tweaks
+mkdir -p /home/${USERNAME}/.config/xfce4/xfconf/xfce-perchannel-xml
+chmod -R 700 /home/${USERNAME}/.config/xfce4
+chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.config/xfce4
+mv -f -b /root/xfce4-*.xml /home/${USERNAME}/.config/xfce4/xfconf/xfce-perchannel-xml/
+chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*.xml
+chmod 644 /home/${USERNAME}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-*.xml
+
 if [ $ROOTPASSWD -eq 1 ]; then
 	echo "root:1" | chpasswd
 fi
